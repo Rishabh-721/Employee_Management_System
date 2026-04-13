@@ -4,7 +4,12 @@ const emp = require ("./models/employee.model");
 const employeeRoutes = require('./routes/employee.routes');
 const cors = require("cors");
 
-const PORT =  8000;
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+
+const PORT =  process.env.PORT || 8000;
 
 const app = express();
 
