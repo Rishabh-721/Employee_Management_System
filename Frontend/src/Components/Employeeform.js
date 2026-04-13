@@ -12,7 +12,7 @@ const Employeeform = () => {
     const isEdit = Boolean(id);
 
   useEffect(() => {
-      axios.get(`${process.env.REACT_APP_URL}/employee/${id}`)
+      axios.get(`${process.env.REACT_APP_API_URL}/employee/${id}`)
         .then(res => setFormData(res.data.data))
         .catch(err => console.log(err));
     }, [id, isEdit]);
@@ -62,7 +62,7 @@ const Employeeform = () => {
       try {
         if (isEdit) {
           await axios.put(
-            `${process.env.REACT_APP_URL}/employee/${id}`,
+            `${process.env.REACT_APP_API_URL}/employee/${id}`,
             formData
           );
         
@@ -72,7 +72,7 @@ const Employeeform = () => {
             navigate("/");
           }, 1000);
         }else{
-          await axios.post(`${process.env.REACT_APP_URL}/employee`, formData);
+          await axios.post(`${process.env.REACT_APP_API_URL}/employee`, formData);
 
           setFormData({
                 name: "",

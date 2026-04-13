@@ -19,7 +19,7 @@ const Dashboard = () => {
 
   const fetchAllEmployees = async() => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_URL}/employee`);
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/employee`);
       setEmployees(res.data.data)
     }catch(err){
       console.log(err);
@@ -41,7 +41,7 @@ const Dashboard = () => {
         if(filters.empid.trim()) query.append("empid", filters.empid);
         if(filters.client.trim()) query.append("client", filters.client);
         
-        const res = await axios.get(`${process.env.REACT_APP_URL}/employee?${query.toString()}`);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/employee?${query.toString()}`);
         setEmployees(res.data.data)
       } catch (err) {
         console.log(err)
@@ -61,7 +61,7 @@ const Dashboard = () => {
     if(!confirmDelete) return;
 
     try {
-      await axios.delete(`${process.env.REACT_APP_URL}/employee/${emp._id}`)
+      await axios.delete(`${process.env.REACT_APP_API_URL}/employee/${emp._id}`)
 
       setEmployees((prev) => prev.filter((e) => e._id !== emp._id));
     } catch (err) {
