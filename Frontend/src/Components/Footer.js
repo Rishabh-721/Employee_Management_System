@@ -4,9 +4,7 @@ const Footer = () => {
       <div className="footer-content">
         <p>© {new Date().getFullYear()} EMS Dashboard</p>
         <div className="footer-links">
-          <span>Privacy</span>
-          <span>Terms</span>
-          <span>Contact</span>
+          <a href="mailto:rishabhrajput337@yahoo.com">Mail Me</a>
         </div>
       </div>
     </footer>
