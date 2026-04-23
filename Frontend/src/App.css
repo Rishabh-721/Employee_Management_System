@@ -90,6 +90,7 @@ header button:hover {
 }
 
 
+/* Dashboard Details */
 
 /* FILTER SECTION */
 .filter-container {
@@ -116,6 +117,7 @@ header button:hover {
 .filter-row input {
   margin-top: 5px;
   padding: 7px 10px;
+  height: 34px;
   background: #0F172A;
   color: var(--text);
   border: 1px solid var(--border);
@@ -129,19 +131,18 @@ header button:hover {
   border-color: var(--primary);
 }
 
-/* Dashboard Details */
 
 /* FILTER BUTTONS */
 .filter-actions {
   display: flex;
   gap: 10px;
+  align-items: flex-end;
 }
 
 .find-btn {
   background: var(--primary);
   color: white;
   border: none;
-  padding: 7px 14px;
   border-radius: 6px;
   cursor: pointer;
 }
@@ -154,9 +155,16 @@ header button:hover {
   background: var(--muted);
   color: black;
   border: none;
-  padding: 7px 14px;
   border-radius: 6px;
   cursor: pointer;
+}
+
+.find-btn,
+.clear-btn {
+  padding: 0px 12px;
+  height: 28px;
+  font-size: 13px;
+  line-height: 28px;
 }
 
 /* TABLE */
