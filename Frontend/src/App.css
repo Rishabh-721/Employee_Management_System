@@ -181,9 +181,9 @@ thead {
 
 th, td {
   padding: 10px;
-  text-align: left;
   border-bottom: 1px solid var(--border);
   text-align: center;
+  flex-wrap: nowrap;
 }
 
 th {
@@ -291,4 +291,89 @@ td button:last-child {
 .success {
   color: var(--success);
   margin-bottom: 10px;
+}
+
+.employee-card{
+  background: var(--card);
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: block;
+  width: 90vw;
+  min-height: 200px;
+  max-height: max-content;
+}
+
+.card-view{
+  display: flex;
+  flex-flow: row wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.employee-card h3{
+  margin: 0;
+  font-size: 16px;
+}
+
+.position{
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.id{
+  font-size: 12px;
+  background: var(--border);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.info{
+  margin-top: 10px;
+  font-size: 14px;
+  color: #Cbd5f5;
+}
+
+.actions{
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.actions button{
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.edit{
+  background: var(--primary);
+  color: white;
+}
+
+.delete{
+  background: var(--danger);
+  color: white;
+}
+
+.table-view{
+  display: block;
+}
+
+.card-view{
+  display: none;
+}
+
+@media (max-width: 910px) {
+  .table-view{
+    display: none;
+  }
+
+  .card-view{
+    display: flex;
+  }
 }

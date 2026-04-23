@@ -7,6 +7,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const [employees, setEmployees] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
     name: "", 
     empid: "",
@@ -23,6 +24,8 @@ const Dashboard = () => {
       setEmployees(res.data.data)
     }catch(err){
       console.log(err);
+    }finally{
+      setLoading(false)
     }
   };
       
@@ -111,8 +114,12 @@ const Dashboard = () => {
         <button className="clear-btn" onClick={handleClear}>Clear</button>
       </div>
     </div>
-      {employees.length > 0 ? (
-        <table border="1" cellPadding="10">
+    {loading ? ( <div className='loading'> Loading Employees... </div> ): 
+       employees.length === 0 ? (
+        <p>No Employee Found</p> ) : (
+        <div>
+        <div className='table-view'>
+        <table className='employee-table' border="1" cellPadding="10">
           <thead>
             <tr>
               <th>Sr No</th>
@@ -133,7 +140,7 @@ const Dashboard = () => {
                 <td>{emp.position}</td>
                 <td>{emp.empid}</td>
                 <td>{emp.client}</td>
-                <td>
+                <td className='table-actions'>
                   <button onClick={() => 
                     handleEdit(emp._id)
                   }>Edit</button>
@@ -146,9 +153,30 @@ const Dashboard = () => {
             ))}
           </tbody>
         </table>
-        ) : (
-        <p>No Employee Found</p>
-      )}
+        </div>
+        <div className='card-view'>
+          {employees.map((emp) => (
+            <div className='employee-card' key={emp._id}>
+              <h3>Name: {emp.name}</h3>
+              <p className='position'>Position: {emp.position}</p>
+              <p className='id'>Employee Id: {emp.empid}</p>
+              <div className='info'>
+                <p><strong>Email :</strong> {emp.email}</p>
+                <p><strong>Client :</strong> {emp.client}</p>
+              </div>
+              <div className='actions'>
+                <button className='edit' onClick={() => 
+                    handleEdit(emp._id)
+                  }>Edit </button>
+                  <button className='delete' onClick={() => 
+                    handleDelete(emp)
+                  }>Delete </button>
+              </div>
+            </div>
+          ))}
+        </div>
+        </div>
+        )}
   </>
   );
 };
