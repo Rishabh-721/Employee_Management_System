@@ -57,6 +57,23 @@ header h1 {
   font-weight: 600;
 }
 
+header .fullHeading{
+  display: block;
+}
+header .shortHeading{
+  display: none;
+}
+
+@media (max-width: 515px) {
+  header .fullHeading{
+    display: none;
+  }
+
+  header .shortHeading{
+    display: block;
+  }
+}
+
 header button {
   background: var(--primary);
   color: white;
@@ -108,8 +125,7 @@ footer {
   border: 1px solid var(--border);
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-  align-items: flex-end;
+  gap: 10px;
 }
 
 .filter-row {
@@ -130,6 +146,8 @@ footer {
   border: 1px solid var(--border);
   border-radius: 6px;
   outline: none;
+  flex: 1;
+  min-width: 150px;
 }
 
 .filter-row input:focus {
@@ -375,5 +393,21 @@ td button:last-child {
 
   .card-view{
     display: flex;
+  }
+
+  .filter-container{
+    flex-direction: column;
+  }
+
+  .filter-row input{
+    width: 100%;
+  }
+
+  .filter-actions{
+    width: 100%;
+  }
+
+  .filter-actions button{
+    flex: 1;
   }
 }
