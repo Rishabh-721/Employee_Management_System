@@ -122,9 +122,8 @@ const getEmpbyId = async (req,res) => {
 const updateEmpById = async (req,res) => {
 
     try {
-         const id = req.params.id;
-
-        const employee = await emp.findById(id);
+    const id = req.params.id;
+    const employee = await emp.findById(id);
 
     if(!employee){
         return res.status(404).json({
@@ -146,13 +145,12 @@ const updateEmpById = async (req,res) => {
         message: "Employee updated sucessfully",
         data: employee
     })
-
+    
     } catch (error) {
       res.status(500).json({
         message: error.message
       });
     }
-    
 }
 
 
